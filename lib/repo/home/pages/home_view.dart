@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fresh_life/repo/home/widgets/home_user_deets.dart';
-import 'package:fresh_life/repo/market/views/widgets/store_tile_list.dart';
+import 'package:fresh_life/repo/market/views/pages/home_market_view.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
 import 'package:fresh_life/utils/core/size_config.dart';
-import 'package:fresh_life/utils/widgets/fresh_text_fields.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -14,13 +13,21 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView>
+    with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
   int sIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: Padding(
         padding: kPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,39 +56,34 @@ class _HomeViewState extends State<HomeView> {
             SizedBox(
               height: SizeConfig.gap(4, context),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(
-                2,
-                (index) => GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      sIndex = index;
-                    });
-                  },
-                  child: TypeSelector(
-                    selected: sIndex == index,
-                    text: index == 0 ? "FreshMarket" : "FreshServices",
-                  ),
+            TabBar(
+              labelColor: Colors.black,
+              labelStyle: AppConfig.body(),
+              indicatorPadding:
+                  const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+              indicatorColor: AppConfig.primaryColor,
+              unselectedLabelColor: AppConfig.hintGrey,
+              unselectedLabelStyle: AppConfig.hint(),
+              tabs: const [
+                Tab(
+                  text: "FreshMarket",
                 ),
+                Tab(
+                  text: "FreshServices",
+                ),
+              ],
+              controller: _tabController,
+            ),
+            Flexible(
+              child: TabBarView(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                controller: _tabController,
+                children: [
+                  const HomeMarketView(),
+                  Container(),
+                ],
               ),
             ),
-            // SizedBox(
-            //   height: SizeConfig.gap(1, context),
-            // ),
-            CustomTextField(
-              text: "",
-              hint: 'Search FreshMarket',
-              prefix: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 20,
-              ),
-              fillColor: AppConfig.appGrey,
-            ),
-
-            const StoreListTile(),
-            const StoreListTile(),
-            const StoreListTile(),
           ],
         ),
       ),

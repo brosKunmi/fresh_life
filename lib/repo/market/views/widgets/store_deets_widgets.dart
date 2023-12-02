@@ -133,3 +133,36 @@ class StoreSubCategory extends StatelessWidget {
     );
   }
 }
+
+class StoreTimesRow extends StatelessWidget {
+  const StoreTimesRow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          'Open',
+          style: AppConfig.sub().copyWith(
+            fontSize: 12,
+            color: AppConfig.primaryColor,
+          ),
+        ),
+        const SizedBox(width: kHalfSpace),
+        Text(
+          'Opens at 6:00 AM'.dotted,
+          style: AppConfig.sub().copyWith(
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(width: kHalfSpace),
+        Text(
+          'Closes at 7:30 PM'.dotted,
+          style: AppConfig.sub().copyWith(fontSize: 12),
+        ),
+      ],
+    );
+  }
+}

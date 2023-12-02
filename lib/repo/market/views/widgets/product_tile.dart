@@ -23,7 +23,12 @@ class ProductTile extends StatelessWidget {
       // ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 12.0),
+        padding: const EdgeInsets.all(8),
         width: SizeConfig.width(context),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: kBRadius,
+        ),
         child: Row(
           children: [
             ClipRRect(
@@ -50,7 +55,7 @@ class ProductTile extends StatelessWidget {
                     "Enjoy sumptous amala with fresh gbegiri. Goes well with a both a chilled malt",
                     style: AppConfig.hint(),
                   ),
-                  // const SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

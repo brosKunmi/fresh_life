@@ -4,8 +4,6 @@ import 'package:fresh_life/repo/market/views/widgets/product_tile.dart';
 import 'package:fresh_life/repo/market/views/widgets/store_deets_widgets.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
-import 'package:fresh_life/utils/core/size_config.dart';
-import 'package:fresh_life/utils/extensions/assets_strings.dart';
 
 class StoreProdsPage extends StatelessWidget {
   const StoreProdsPage({super.key});
@@ -69,29 +67,7 @@ class StoreProdsPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: kHalfSpace),
-                  Row(
-                    children: [
-                      Text(
-                        'Open',
-                        style: AppConfig.sub().copyWith(
-                          fontSize: 12,
-                          color: AppConfig.primaryColor,
-                        ),
-                      ),
-                      const SizedBox(width: kHalfSpace),
-                      Text(
-                        'Opens at 6:00 AM'.dotted,
-                        style: AppConfig.sub().copyWith(
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(width: kHalfSpace),
-                      Text(
-                        'Closes at 7:30 PM'.dotted,
-                        style: AppConfig.sub().copyWith(fontSize: 12),
-                      ),
-                    ],
-                  ),
+                  const StoreTimesRow(),
                   const SizedBox(height: kSpacing),
                   const StoreDeliveryInfoTile(),
                   const SizedBox(height: kSpacing),
@@ -101,16 +77,26 @@ class StoreProdsPage extends StatelessWidget {
                     style: AppConfig.boldTitle().copyWith(fontSize: 16),
                   ),
                   const SizedBox(height: kSpacing),
-                  const ProductTile(),
+                  ListView.builder(
+                    itemBuilder: (context, index) {
+                      return const ProductTile();
+                    },
+                    shrinkWrap: true,
+                    itemCount: 8,
+                    padding: const EdgeInsets.all(0),
+                    physics: const NeverScrollableScrollPhysics(),
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
 
 
 
