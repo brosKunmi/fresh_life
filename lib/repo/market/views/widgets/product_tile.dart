@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_life/repo/market/views/pages/item_desc_page.dart';
 import 'package:fresh_life/repo/market/views/widgets/units_button.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
@@ -15,12 +15,12 @@ class ProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: () => Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (_) => FoodDesPage(foodItem: foodItem),
-      //   ),
-      // ),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const ItemDescPage(),
+        ),
+      ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 12.0),
         padding: const EdgeInsets.all(8),
@@ -53,7 +53,7 @@ class ProductTile extends StatelessWidget {
                   ),
                   Text(
                     "Enjoy sumptous amala with fresh gbegiri. Goes well with a both a chilled malt",
-                    style: AppConfig.hint(),
+                    style: AppConfig.hint().copyWith(fontSize: 10),
                   ),
                   const SizedBox(height: 4),
                   Row(
@@ -62,7 +62,7 @@ class ProductTile extends StatelessWidget {
                       Text(
                         "600".withNaira,
                         style: AppConfig.sub().copyWith(
-                          fontSize: 14,
+                          fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

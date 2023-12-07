@@ -17,8 +17,8 @@ class UnitsButton extends StatelessWidget {
       onTap: onTap,
       child: Icon(
         unit,
-        size: 32,
-        color: AppConfig.primaryColor,
+        size: 16,
+        color: AppConfig.appBlack.withOpacity(0.5),
       ),
     );
   }

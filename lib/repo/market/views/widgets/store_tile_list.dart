@@ -25,7 +25,7 @@ class StoreListTile extends StatelessWidget {
                 "Few metres away",
                 style: AppConfig.boldTitle().copyWith(fontSize: 18),
               ),
-              SmallButton(text: "See more", onPressed: () {}),
+              SmallerButton(text: "See more", onPressed: () {}),
             ],
           ),
           SizedBox(

@@ -52,14 +52,44 @@ class SmallButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(SizeConfig.width(context) * 0.2, 40),
+        fixedSize: Size(SizeConfig.width(context) * 0.4, 40),
         backgroundColor: color ?? AppConfig.lightPrimary,
-        shape: RoundedRectangleBorder(borderRadius: kBRadius),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         padding: const EdgeInsets.all(8),
       ),
       child: Text(
         text,
-        style: AppConfig.button1().copyWith(fontSize: 12),
+        style: AppConfig.button1().copyWith(fontSize: 12, color: Colors.black),
+      ),
+    );
+  }
+}
+
+class SmallerButton extends StatelessWidget {
+  const SmallerButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.color,
+  });
+
+  final String text;
+  final VoidCallback onPressed;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(SizeConfig.width(context) * 0.2, 40),
+        backgroundColor: color ?? AppConfig.primaryColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        padding: const EdgeInsets.all(4),
+      ),
+      child: Text(
+        text,
+        style: AppConfig.button1().copyWith(fontSize: 12, color: Colors.white),
       ),
     );
   }

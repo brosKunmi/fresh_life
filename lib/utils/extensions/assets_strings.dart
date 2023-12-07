@@ -11,6 +11,6 @@ extension StringExtension on String {
 
 extension DotteddStrings on String {
   String get dotted => "${String.fromCharCode(0x2022)} $this";
-  String get withNaira => "₦$this";
+  String get withNaira => "N$this";
 }
 // String.fromCharCode(0x20A6)

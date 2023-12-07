@@ -11,7 +11,9 @@ class StoreProdsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(
