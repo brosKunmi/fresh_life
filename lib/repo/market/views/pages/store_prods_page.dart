@@ -4,6 +4,7 @@ import 'package:fresh_life/repo/market/views/widgets/product_tile.dart';
 import 'package:fresh_life/repo/market/views/widgets/store_deets_widgets.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
+import 'package:fresh_life/utils/widgets/fresh_buttons.dart';
 
 class StoreProdsPage extends StatelessWidget {
   const StoreProdsPage({super.key});
@@ -13,6 +14,7 @@ class StoreProdsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        leading: const CustomBack(),
       ),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(

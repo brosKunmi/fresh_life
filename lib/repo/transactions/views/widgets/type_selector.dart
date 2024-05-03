@@ -24,7 +24,7 @@ class _TypeSelectorState extends State<TypeSelector> {
       onTap: widget.onTap,
       child: Container(
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         width: SizeConfig.width(context) * 0.4,
         decoration: BoxDecoration(
           color: widget.selected ? AppConfig.primaryColor : Colors.transparent,

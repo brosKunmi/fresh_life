@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fresh_life/repo/transactions/views/pages/wallet_page.dart';
 import 'package:fresh_life/repo/user/views/widgets/profile_boxes.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
@@ -7,7 +8,7 @@ import 'package:fresh_life/utils/core/size_config.dart';
 import 'package:fresh_life/utils/extensions/assets_strings.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +82,13 @@ class ProfilePage extends StatelessWidget {
               ProfRow(
                 icon: FontAwesomeIcons.wallet,
                 text: "Wallet",
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const WalletPage(),
+                    ),
+                  );
+                },
                 isLast: false,
               ),
               ProfRow(

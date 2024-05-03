@@ -91,9 +91,11 @@ class TransactHistoryTile extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   index > 2 && index.isEven ? "send".svg : "recieve".svg,
-                  color: index > 2 && index.isEven
-                      ? AppConfig.primaryColor.withRed(250)
-                      : Colors.green,
+                  theme: SvgTheme(
+                    currentColor: index > 2 && index.isEven
+                        ? AppConfig.primaryColor.withRed(250)
+                        : Colors.green,
+                  ),
                 ),
                 const SizedBox(width: kHalfSpace),
                 Flexible(

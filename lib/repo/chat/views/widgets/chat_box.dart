@@ -46,7 +46,10 @@ class ChatBox extends StatelessWidget {
               isMe
                   ? 'Common, this app is so cool, I needed it like yesterday!'
                   : 'Hello Godwin! How may we help you today?',
-              style: AppConfig.sub().copyWith(fontSize: 12),
+              style: AppConfig.sub().copyWith(
+                fontSize: 12,
+                // color: !isMe ? Colors.white : AppConfig.appBlack,
+              ),
             ),
           ),
         ],

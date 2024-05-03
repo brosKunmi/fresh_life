@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppConfig {
-  static Color get appBlack => const Color(0xff0c1618);
+  static Color get appBlack => const Color(0xfF000000);
 
   static Color get secBlack => const Color(0xf1132a13);
 
-  static Color get hintGrey => const Color.fromARGB(255, 146, 160, 169);
+  static Color get hintGrey => const Color(0xffA3B18A);
 
-  static Color get appGrey => const Color.fromARGB(255, 223, 233, 239);
+  static Color get appGrey => const Color(0xffDAD7CD);
 
-  static Color get primaryColor => const Color(0xff01263d);
-  static Color get lightPrimary => const Color(0xff72bad5);
+  static Color get primaryColor => const Color(0xff3DAC78);
+  static Color get lightPrimary => const Color(0xffB7E4C7);
 
-  static Color get secColor => const Color(0xffbe1e2d);
+  static Color get secColor => const Color(0xffBC2023);
 
   static TextStyle body() => GoogleFonts.manrope(
         fontSize: 16,

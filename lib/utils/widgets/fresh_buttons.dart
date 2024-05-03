@@ -71,11 +71,13 @@ class SmallerButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.color,
+    this.tcolor,
   });
 
   final String text;
   final VoidCallback onPressed;
   final Color? color;
+  final Color? tcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,24 @@ class SmallerButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: AppConfig.button1().copyWith(fontSize: 12, color: Colors.white),
+        style: AppConfig.button1()
+            .copyWith(fontSize: 12, color: tcolor ?? Colors.white, height: 1.2),
+      ),
+    );
+  }
+}
+
+class CustomBack extends StatelessWidget {
+  const CustomBack({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CircleAvatar(
+        backgroundColor: AppConfig.lightPrimary,
+        radius: 20,
+        child: BackButton(color: AppConfig.appBlack),
       ),
     );
   }

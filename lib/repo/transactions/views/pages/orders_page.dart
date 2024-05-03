@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fresh_life/repo/transactions/views/widgets/order_history_tile.dart';
+import 'package:fresh_life/repo/transactions/views/widgets/service_his_tiles.dart';
 import 'package:fresh_life/repo/transactions/views/widgets/type_selector.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
@@ -15,6 +17,7 @@ class OrdersPage extends StatefulWidget {
 class _OrdersPageState extends State<OrdersPage>
     with SingleTickerProviderStateMixin {
   int picked = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +43,7 @@ class _OrdersPageState extends State<OrdersPage>
             const SizedBox(height: kHalfSpace),
             Center(
               child: Text(
-                "All your orders will appear here. Click on ${"ReOrder"} to reorder same cart or service again ",
+                'All your orders will appear here. \nClick on "ReOrder" to order same cart or service again.',
                 textAlign: TextAlign.center,
                 style: AppConfig.sub(),
               ),
@@ -71,16 +74,15 @@ class _OrdersPageState extends State<OrdersPage>
               ),
             ),
             const SizedBox(height: kSpacing),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Eleyele Store",
-                  style: AppConfig.boldTitle()
-                      .copyWith(fontSize: 14, color: AppConfig.secBlack),
-                )
-              ],
-            ),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              switchInCurve: Curves.easeInCirc,
+              switchOutCurve: Curves.easeInOutBack,
+              child: picked == 0
+                  ? const MarketOrderHistory()
+                  : const ServiceOrderHistory(),
+            )
+            // const MarketOrderHistory(),
           ],
         ),
       ),

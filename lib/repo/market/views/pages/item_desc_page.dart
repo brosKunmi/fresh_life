@@ -76,9 +76,7 @@ class ItemDescPage extends StatelessWidget {
 }
 
 class ItemSidesTile extends StatelessWidget {
-  const ItemSidesTile({
-    super.key,
-  });
+  const ItemSidesTile({super.key});
 
   @override
   Widget build(BuildContext context) {

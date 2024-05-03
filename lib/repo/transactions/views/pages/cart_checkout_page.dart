@@ -29,7 +29,7 @@ class CartCheckoutPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: kPadding.copyWith(top: 8),
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CheckoutCartList(),

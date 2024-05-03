@@ -6,7 +6,7 @@ import 'package:fresh_life/repo/market/views/pages/home_market_view.dart';
 import 'package:fresh_life/repo/transactions/views/pages/cart_checkout_page.dart';
 import 'package:fresh_life/utils/core/app_config.dart';
 import 'package:fresh_life/utils/core/doubles_config.dart';
-import 'package:fresh_life/utils/core/size_config.dart';
+// import 'package:fresh_life/utils/core/size_config.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -33,17 +33,18 @@ class _HomeViewState extends State<HomeView>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: kPadding,
+            padding: kPadding.copyWith(bottom: 8, top: 0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const HomeUserDeets(),
                 Row(
                   children: [
-                    const FaIcon(
-                      FontAwesomeIcons.bell,
-                      size: 18,
+                    const CircleAvatar(
+                      child: FaIcon(
+                        FontAwesomeIcons.bell,
+                        size: 18,
+                      ),
                     ),
                     const SizedBox(width: kSpacing),
                     GestureDetector(
@@ -52,10 +53,11 @@ class _HomeViewState extends State<HomeView>
                           builder: (_) => const CartCheckoutPage(),
                         ),
                       ),
-                      child: FaIcon(
-                        FontAwesomeIcons.cartShopping,
-                        size: 18,
-                        color: AppConfig.primaryColor,
+                      child: const CircleAvatar(
+                        child: FaIcon(
+                          FontAwesomeIcons.cartShopping,
+                          size: 18,
+                        ),
                       ),
                     ),
                   ],
@@ -63,9 +65,10 @@ class _HomeViewState extends State<HomeView>
               ],
             ),
           ),
-          SizedBox(
-            height: SizeConfig.gap(1, context),
-          ),
+          const HomeUserDeets(),
+          // SizedBox(
+          //   height: SizeConfig.gap(1, context),
+          // ),
           TabBar(
             labelColor: Colors.black,
             labelStyle: AppConfig.body(),
